@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwn3nsxbf4nib"]
+
+[ext_resource type="Script" uid="uid://b348gmyyaid6s" path="res://scripts/juego-auto/jugador/jugador.gd" id="1_n2uqs"]
+[ext_resource type="PackedScene" uid="uid://byqdr5exc2fy0" path="res://assets/juego-auto/GLB format/sedan.glb" id="1_pb84o"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pb84o"]
+size = Vector3(1.4883728, 1.2651672, 2.4526367)
+
+[node name="Jugador" type="VehicleBody3D"]
+script = ExtResource("1_n2uqs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008621216, 0.7315016, -0.055664063)
+shape = SubResource("BoxShape3D_pb84o")
+
+[node name="sedan" parent="CollisionShape3D" instance=ExtResource("1_pb84o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008621216, -0.64585876, 0.055664063)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, -6.18172e-08, 6.181723e-08, -3.9186595e-08, 0.9490466, 0.3151356, -7.814824e-08, 0.3151356, -0.9490466, 0, 2.6177447, -3.3824148)
