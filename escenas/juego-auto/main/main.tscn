@@ -6,7 +6,7 @@
 [node name="Main" type="Node3D"]
 
 [node name="Jugador" parent="." instance=ExtResource("1_w5h7j")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.240489, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043962717, 18.054668)
 
 [node name="Creador de Mapa" parent="." instance=ExtResource("2_2fgij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15781593)
