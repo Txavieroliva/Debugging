@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://e6uxtepbopk5"]
+[gd_scene load_steps=8 format=3 uid="uid://e6uxtepbopk5"]
 
 [ext_resource type="Script" uid="uid://bugswysvsbt3s" path="res://scripts/juego-auto/creador de mapa/creador_de_mapa.gd" id="1_aihxc"]
 [ext_resource type="PackedScene" uid="uid://cgq8pbulnmjlc" path="res://escenas/juego-auto/tiles/tile_set_edificios.tscn" id="2_3gsdr"]
 [ext_resource type="Texture2D" uid="uid://dh873vjdat01u" path="res://assets/juego-auto/skybox/Skybox.png" id="3_46cb7"]
+[ext_resource type="PackedScene" uid="uid://cu2h0rumusblv" path="res://city_tile_set_test.tscn" id="3_g18w1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_g18w1"]
 panorama = ExtResource("3_46cb7")
@@ -19,6 +20,7 @@ fog_enabled = true
 fog_mode = 1
 fog_light_energy = 1.8
 fog_sun_scatter = 0.7
+fog_density = 1.0
 fog_sky_affect = 0.67
 fog_depth_begin = 200.0
 fog_depth_end = 300.0
@@ -26,7 +28,7 @@ fog_depth_end = 300.0
 [node name="Creador de Mapa" type="Node3D"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("1_aihxc")
-tiles = Array[PackedScene]([ExtResource("2_3gsdr")])
+tiles = Array[PackedScene]([ExtResource("2_3gsdr"), ExtResource("3_g18w1")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_t85ai")
