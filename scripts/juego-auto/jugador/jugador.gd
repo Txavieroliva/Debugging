@@ -52,13 +52,13 @@ func _physics_process(delta):
 	position.x = clamp(position.x, -6.0, 6.0)
 
 	# --- Aplicar gravedad ---
-	if not is_on_floor_custom():
+	if not is_on_floor():
 		velocity.y -= gravity * delta
 	else:
 		velocity.y = 0.0
 
 	# --- Salto ---
-	if Input.is_action_just_pressed("salto") and is_on_floor_custom():
+	if Input.is_action_just_pressed("salto") and is_on_floor():
 		print("Salto detectado!") # Debug
 		velocity.y = jump_force
 		is_jumping = true
@@ -76,7 +76,7 @@ func _physics_process(delta):
 	move_and_slide()
 
 	# --- Rotación durante salto ---
-	if is_jumping and not is_on_floor_custom():
+	if is_jumping and not is_on_floor():
 		spin_progress += spin_rate * delta
 		if spin_axis == "y":
 			car_mesh.rotation_degrees.y = spin_progress
@@ -84,7 +84,7 @@ func _physics_process(delta):
 			car_mesh.rotation_degrees.z = spin_progress
 
 	# --- Reset suave al aterrizar ---
-	if is_on_floor_custom() and is_jumping:
+	if is_on_floor() and is_jumping:
 		is_jumping = false
 		spin_progress = 0.0
 		car_mesh.rotation_degrees = Vector3(0, 0, 0)
@@ -100,19 +100,19 @@ func _physics_process(delta):
 		wheel.rotation.x += current_speed * delta * 5.0
 
 
-func is_on_floor_custom() -> bool:
-	var world = get_world_3d()
-	if world == null:
-		return false
-	var space_state = world.direct_space_state
-	if space_state == null:
-		return false
-
-	var ray = PhysicsRayQueryParameters3D.new()
-	ray.from = global_transform.origin + Vector3(0, 0.5, 0)
-	ray.to = global_transform.origin + Vector3(0, -1.5, 0)
-	ray.exclude = [self]
-	ray.collide_with_areas = false
-
-	var collision = space_state.intersect_ray(ray)
-	return collision.size() > 0
+#func is_on_floor_custom() -> bool:
+	#var world = get_world_3d()
+	#if world == null:
+		#return false
+	#var space_state = world.direct_space_state
+	#if space_state == null:
+		#return false
+#
+	#var ray = PhysicsRayQueryParameters3D.new()
+	#ray.from = global_transform.origin + Vector3(0, 0.5, 0)
+	#ray.to = global_transform.origin + Vector3(0, -1.5, 0)
+	#ray.exclude = [self]
+	#ray.collide_with_areas = false
+#
+	#var collision = space_state.intersect_ray(ray)
+	#return collision.size() > 0
