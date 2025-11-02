@@ -23,6 +23,11 @@ window/size/mode=3
 
 project/assembly_name="Juego Auto"
 
+[global_group]
+
+player=""
+obstacles=""
+
 [gui]
 
 fonts/movie_file=""

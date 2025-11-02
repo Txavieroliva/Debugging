@@ -16,7 +16,7 @@ extends CharacterBody3D
 @export var drift_tilt: float = 10.0
 
 # --- Salto ---
-@export var jump_force: float = 14.0
+@export var jump_force: float = 8.0
 
 # --- Variables ---
 var current_speed: float = 20.0
