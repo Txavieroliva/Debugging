@@ -19,6 +19,7 @@ fog_enabled = true
 fog_mode = 1
 fog_light_energy = 1.8
 fog_sun_scatter = 0.7
+fog_density = 1.0
 fog_sky_affect = 0.67
 fog_depth_begin = 200.0
 fog_depth_end = 300.0

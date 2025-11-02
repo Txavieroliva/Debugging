@@ -182,7 +182,7 @@ shadow_mesh = SubResource("ArrayMesh_f61jl")
 [sub_resource type="BoxShape3D" id="BoxShape3D_n2uqs"]
 size = Vector3(1.2644043, 1.3203125, 2.4907532)
 
-[node name="Jugador" type="CharacterBody3D"]
+[node name="Jugador" type="CharacterBody3D" groups=["player"]]
 floor_snap_length = 2.0
 script = ExtResource("1_n2uqs")
 

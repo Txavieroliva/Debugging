@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bn7vd3hw55f55"]
+[gd_scene load_steps=9 format=3 uid="uid://bn7vd3hw55f55"]
 
 [ext_resource type="PackedScene" uid="uid://bwn3nsxbf4nib" path="res://escenas/juego-auto/jugador/jugador.tscn" id="1_w5h7j"]
 [ext_resource type="PackedScene" uid="uid://e6uxtepbopk5" path="res://escenas/juego-auto/creador de mapa/creador_de_mapa.tscn" id="2_2fgij"]
+[ext_resource type="PackedScene" uid="uid://bamcv7ymtt26j" path="res://escenas/juego-auto/obstaculos/creador_de_obstaculos.tscn" id="3_tof0h"]
+[ext_resource type="Script" uid="uid://rtcjuiug1agy" path="res://scripts/juego-auto/creador de obstaculos/creador_de_obstaculos.gd" id="4_athit"]
+[ext_resource type="PackedScene" uid="uid://ccemn8ueyjvmq" path="res://escenas/juego-auto/obstaculos/ambulancia.tscn" id="5_tr86o"]
+[ext_resource type="PackedScene" uid="uid://hct5xqxnu4pv" path="res://escenas/juego-auto/obstaculos/camion_de_basura.tscn" id="6_ivajl"]
+[ext_resource type="PackedScene" uid="uid://cgy0f0b7nra4i" path="res://escenas/juego-auto/obstaculos/cono.tscn" id="7_riibr"]
+[ext_resource type="PackedScene" uid="uid://orgwssrd1caq" path="res://escenas/juego-auto/obstaculos/taxi.tscn" id="8_ivajl"]
 
 [node name="Main" type="Node3D"]
 
@@ -10,3 +16,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.043962717, 18.054668)
 
 [node name="Creador de Mapa" parent="." instance=ExtResource("2_2fgij")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15781593)
+
+[node name="Creador de Obstaculos" parent="." node_paths=PackedStringArray("obstacles_container") instance=ExtResource("3_tof0h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.9572258, 0)
+script = ExtResource("4_athit")
+obstacles = Array[PackedScene]([ExtResource("5_tr86o"), ExtResource("6_ivajl"), ExtResource("7_riibr"), ExtResource("3_tof0h"), ExtResource("8_ivajl")])
+obstacles_container = NodePath("../Obstaculos")
+
+[node name="Obstaculos" type="Node3D" parent="." groups=["obstacles"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.56279826, 0)
